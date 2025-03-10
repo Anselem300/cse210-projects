@@ -25,32 +25,32 @@ public class Journal
 
     public void SaveToFile(string file)
     {
-       using(StreamWriter writer = new StreamWriter(file))
+       using(StreamWriter _writer = new StreamWriter(file))
        {
          foreach (var entry in _entries)
          {
-            writer.WriteLine($"{entry._date} | {entry._promptText} | {entry._entryText}");
+            _writer.WriteLine($"{entry._date} | {entry._promptText} | {entry._entryText}");
          }
        } 
     }
 
-    public void LoadFromFile(string file)
+    public void LoadFromFile(string _file)
     {
-        if (!File.Exists(file))
+        if (!File.Exists(_file))
         {
             Console.WriteLine("File not found!");
             return;
         }
 
         _entries.Clear();
-        foreach(var line in File.ReadLines(file))
+        foreach(var _line in File.ReadLines(_file))
         {
-            string[] parts = line.Split('|');
+            string[] parts = _line.Split('|');
             if (parts.Length == 3)
             {
                 _entries.Add(new Entry(parts[0], parts[1], parts[2]));
                 Console.WriteLine();
-                Console.WriteLine($"{line}");
+                Console.WriteLine($"{_line}");
                 Console.WriteLine();
             }
         }

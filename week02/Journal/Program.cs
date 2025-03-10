@@ -12,11 +12,11 @@ class Program
 
         Console.WriteLine("Hello World! This is the Journal Project.");
         Console.Write("Please what is your first name? ");
-        string fname = Console.ReadLine();
+        string fName = Console.ReadLine();
         Console.Write("Please what is your last name? ");
-        string lname = Console.ReadLine();
+        string lName = Console.ReadLine();
         Console.WriteLine();
-        Console.WriteLine($"Welcome to the Journal Program {fname} {lname}!");
+        Console.WriteLine($"Welcome to the Journal Program {fName} {lName}!");
 
         Journal journal = new Journal();
         PromptGenerator promptGenerator = new PromptGenerator();
