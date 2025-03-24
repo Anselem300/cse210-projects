@@ -6,24 +6,24 @@ public class Video{
     public string _title;
     public string _author;
     public int _length;
-    public List<Comments> _Comment;
+    public List<Comments> _comment;
 
     public Video(string title, string author, int length)
     {
         _title = title;
         _author = author;
         _length = length;
-        _Comment = new List<Comments>();
+        _comment = new List<Comments>();
     }
 
     public void AddComment(string name, string text)
     {
-        _Comment.Add(new Comments(name, text));
+        _comment.Add(new Comments(name, text));
     }
 
     public int NumberOfComment()
     {
-        return _Comment.Count();
+        return _comment.Count();
     }
 
     public void DisplayVideoDetails()
@@ -33,9 +33,9 @@ public class Video{
         Console.WriteLine($"Video Length: {_length} secs.");
         Console.WriteLine($"Number of Comments added: {NumberOfComment()}");
         Console.WriteLine("Comments: ");
-        foreach(var Comment in _Comment)
+        foreach(var comment in _comment)
         {
-            Console.WriteLine($"{Comment._name} - {Comment._text}");
+            Console.WriteLine($"{comment._name} - {comment._text}");
         }
 
         Console.WriteLine();
