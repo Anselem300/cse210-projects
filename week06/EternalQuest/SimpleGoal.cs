@@ -3,19 +3,27 @@ public class SimpleGoal : Goals {
 
     public SimpleGoal(string shortName, string description, int points) : base(shortName, description, points)
     {
-        
+       _isComplete = false;
     }
-    public override void RecordEvent() {
-
+    public override void RecordEvent(GoalManager manager) {
+        if (!_isComplete) {
+            _isComplete = true;
+           manager.AddPoints(_points);
+        }
     }
 
     public override bool IsComplete()
     {
-        throw new NotImplementedException();
+       return _isComplete;
     }
+
+    public void SetIsComplete(bool value) {
+        _isComplete = value;
+    }
+
 
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"SimpleGoal:{_shortName},{_description},{_points},{_isComplete}";
     }
 }

@@ -4,18 +4,18 @@ public class EternalGoal : Goals {
     {
         
     }
-    public override void RecordEvent()
+    public override void RecordEvent(GoalManager manager)
     {
-        
+        manager.AddPoints(_points);
     }
 
     public override bool IsComplete()
     {
-        throw new NotImplementedException();
+        return false;
     }
 
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"EternalGoal:{_shortName},{_description},{_points}";
     }
 }
